@@ -46,19 +46,20 @@ class ThereminListener extends Listener {
                 continue;
             }
 
-            // do volume stuff
-            float yPos = hand.palmPosition().getY();
-            instrumentPlayer.setVolume((int) yPos/3);
-            System.out.println("Left hand is at: " + yPos);
-
-            // do some pitch stuff
-            float zPos = hand.palmPosition().getZ();
-            instrumentPlayer.setPitch((int) ((zPos / 12) + 60));
-            System.out.println("Right hand is at: " + zPos);
-
-            instrumentPlayer.playNote();
+            if (hand.isLeft()) {
+                // do volume stuff
+                float yPos = hand.palmPosition().getY();
+                instrumentPlayer.setVolume((int) yPos / 3);
+                System.out.println("Left hand is at: " + yPos);
+            } else {
+                // do some pitch stuff
+                float zPos = hand.palmPosition().getZ();
+                instrumentPlayer.setPitch((int) ((zPos / 12) + 60));
+                System.out.println("Right hand is at: " + zPos);
+            }
 
         }
+        instrumentPlayer.playNote();
 
         try {
             Thread.sleep(10);

@@ -53,7 +53,7 @@ class ThereminListener extends Listener {
 
             // do some pitch stuff
             float zPos = hand.palmPosition().getZ();
-            instrumentPlayer.setPitch((int) ((zPos / 13.5) + 60));
+            instrumentPlayer.setPitch((int) ((zPos / 12) + 60));
             System.out.println("Right hand is at: " + zPos);
 
             instrumentPlayer.playNote();

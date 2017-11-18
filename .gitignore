@@ -136,4 +136,7 @@ Temporary Items
 *.dylib
 *.so
 
+# Intellij project files?
+.idea/
+
 # End of https://www.gitignore.io/api/java,macos,linux,intellij

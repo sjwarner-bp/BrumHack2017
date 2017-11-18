@@ -132,4 +132,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Leap Motion Libraries
+*.dylib
+*.so
+
 # End of https://www.gitignore.io/api/java,macos,linux,intellij

@@ -1,4 +1,5 @@
 import javax.sound.midi.*;
+import java.util.Arrays;
 
 class InstrumentPlayer{
     private static Instrument[] instruments;
@@ -6,6 +7,7 @@ class InstrumentPlayer{
     private static Integer pitch;
     private static Integer volume;
     private static String[] NoteBank;
+    private static int[] sharpNotes = {1, 3, 6, 8, 10};
     private static boolean isSound = false;
 
     InstrumentPlayer(){
@@ -37,7 +39,9 @@ class InstrumentPlayer{
     }
 
     public static void setPitch(int pitchIn){
-        if (pitchIn > 71) pitchIn = 71;
+        final int finalPitchIn = pitchIn;
+        if (Arrays.stream(sharpNotes).anyMatch(i -> i == finalPitchIn % 12)) ++pitchIn;
+        if (pitchIn > 72) pitchIn = 72;
         if (pitchIn < 48) pitchIn = 48;
         pitch = pitchIn;
     }

@@ -64,7 +64,6 @@ class InstrumentPlayer{
         try{
             Synthesizer synthesizer = MidiSystem.getSynthesizer();
             synthesizer.open();
-            Instrument[] orchestra = synthesizer.getAvailableInstruments();
             MidiChannel[] channels = synthesizer.getChannels();
             instruments = synthesizer.getDefaultSoundbank().getInstruments();
 

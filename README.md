@@ -3,7 +3,7 @@ BrumHack2017 Project
 by Sam Warner, Nikolas Mouzourides and Chloe Seivwright.
 
 Code to compile:
-```javac -classpath ./LeapJava.jar src/Sample.java```
+```javac -cp "../LeapJava.jar" Sample.java```
 
 Code to run:
-```java -classpath "./LeapJava.jar:." src/Sample```
+```LD_LIBRARY_PATH=. java -cp ../LeapJava.jar:. Sample```

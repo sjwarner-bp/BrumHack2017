@@ -26,7 +26,7 @@ class InstrumentPlayer{
 
     public static void increaseVolume(){
         volume++;
-        if (volume > 50) volume = 50;
+        if (volume > 100) volume = 100;
     }
 
     public static void decreaseVolume(){
@@ -72,51 +72,29 @@ class InstrumentPlayer{
 
             while(isSound){
                 //Audio out test Parameters
-                int PtoNote = 0;
                 int NoteOut = pitch;
+                if (NoteOut > 11) NoteOut = 0;
 
-
-                while (NoteOut > 11)
-                {
-                    NoteOut = NoteOut - 12;
-                }
-
-//                if (pitch <= 11)
-//                {
-//                    PtoNote = pitch + 12;
-//                }
-
-                //dotCol = DotColor[NoteOut];
-                // channels[mc+1].programChange(instruments[83].getPatch().getProgram());
                 channels[0].noteOn((pitch), (volume));
                 System.out.println("Volume: " + volume);
                 System.out.println("Pitch: " + pitch);
                 System.out.println(NoteBank[NoteOut]);
                 Thread.sleep(1000);
+
                 channels[0].allNotesOff();
                 increasePitch();
-                //channels[mc+1].noteOn((pitch), (volume));
-
-
-
 
                 if (pitch == 0 || volume == 0)
                 {
                     channels[0].allNotesOff();
                     toggleSound();
                 }
-                //channels[mc].setPolyPressure(pitch, volume/2);
-                //Thread.sleep(20);
-
             }
-
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-
-
     }
 
 

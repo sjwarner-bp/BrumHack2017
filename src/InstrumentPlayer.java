@@ -1,13 +1,40 @@
-import javax.sound.midi.Instrument;
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.Synthesizer;
+import javax.sound.midi.*;
 
 class InstrumentPlayer{
     private static Instrument[] instruments;
+    private static MidiChannel[] channels;
     private static Integer pitch = 48;
     private static Integer volume = 100;
     private static boolean isSound = false;
+    private static String[] NoteBank;
+
+    InstrumentPlayer(){
+        isSound = true;
+        NoteBank = new String[12];
+        NoteBank[0] = "C";
+        NoteBank[1] = "C#";
+        NoteBank[2] = "D";
+        NoteBank[3] = "D#";
+        NoteBank[4] = "E";
+        NoteBank[5] = "F";
+        NoteBank[6] = "F#";
+        NoteBank[7] = "G";
+        NoteBank[8] = "G#";
+        NoteBank[9] = "A";
+        NoteBank[10] = "A#";
+        NoteBank[11] = "B";
+
+        Synthesizer synthesizer = null;
+        try {
+            synthesizer = MidiSystem.getSynthesizer();
+            synthesizer.open();
+        } catch (MidiUnavailableException e) {
+            e.printStackTrace();
+        }
+        channels = synthesizer.getChannels();
+        instruments = synthesizer.getDefaultSoundbank().getInstruments();
+        channels[0].programChange(instruments[50].getPatch().getProgram());
+    }
 
 //    public static void increasePitch(){
 //        pitch++;
@@ -57,52 +84,31 @@ class InstrumentPlayer{
 
 
     public void run(){
-        isSound = true;
-
-        String[] NoteBank = new String[12];
-        NoteBank[0] = "C";
-        NoteBank[1] = "C#";
-        NoteBank[2] = "D";
-        NoteBank[3] = "D#";
-        NoteBank[4] = "E";
-        NoteBank[5] = "F";
-        NoteBank[6] = "F#";
-        NoteBank[7] = "G";
-        NoteBank[8] = "G#";
-        NoteBank[9] = "A";
-        NoteBank[10] = "A#";
-        NoteBank[11] = "B";
-
-
         try{
-            Synthesizer synthesizer = MidiSystem.getSynthesizer();
-            synthesizer.open();
-            MidiChannel[] channels = synthesizer.getChannels();
-            instruments = synthesizer.getDefaultSoundbank().getInstruments();
-            channels[0].programChange(instruments[50].getPatch().getProgram());
-
             while(isSound){
                 //Audio out test Parameters
-                int NoteOut = pitch;
-                while (NoteOut > 11) NoteOut = NoteOut - 12;
-
-                channels[0].noteOn((pitch), (volume));
-                System.out.println("Volume: " + volume);
-                System.out.println("Pitch: " + pitch);
-                System.out.println(NoteBank[NoteOut]);
-                Thread.sleep(1000);
-                channels[0].allNotesOff();
-
-                if (pitch == 0 || volume == 0)
-                {
-                    channels[0].allNotesOff();
-                    toggleSound();
-                }
+                playNote();
             }
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+    }
+
+    public void playNote() {
+        int NoteOut = pitch;
+        while (NoteOut > 11) NoteOut = NoteOut - 12;
+
+        channels[0].noteOn((pitch), (volume));
+        System.out.println("Volume: " + volume);
+        System.out.println("Pitch: " + pitch);
+        System.out.println(NoteBank[NoteOut]);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        channels[0].allNotesOff();
     }
 }

@@ -42,6 +42,7 @@ class ThereminListener extends Listener {
         for(Hand hand : frame.hands()) {
 
             if (frame.hands().count() != 2) {
+                instrumentPlayer.setVolume(0);
                 System.out.println("You're out of range!");
                 continue;
             }

@@ -41,23 +41,28 @@ class ThereminListener extends Listener {
         //Get hands
         for(Hand hand : frame.hands()) {
 
-            if (frame.hands().count() != 2) {
-                instrumentPlayer.setVolume(0);
-                System.out.println("You're out of range!");
-                continue;
+            for(Finger finger : hand.fingers()) {
+                if (finger.type() == Finger.Type.TYPE_MIDDLE) {
+                    if (frame.hands().count() != 2) {
+                        instrumentPlayer.setVolume(0);
+                        System.out.println("You're out of range!");
+                        continue;
+                    }
+
+                    if (hand.isLeft()) {
+                        // do volume stuff
+                        float yPos = hand.palmPosition().getY();
+                        instrumentPlayer.setVolume((int) yPos / 3);
+                        System.out.println("Left hand is at: " + yPos);
+                    } else {
+                        // do some pitch stuff
+                        float zPos = finger.tipPosition().getZ();
+                        instrumentPlayer.setPitch((int) ((zPos / 12) + 60));
+                        System.out.println("Right hand is at: " + zPos);
+                    }
+                }
             }
 
-            if (hand.isLeft()) {
-                // do volume stuff
-                float yPos = hand.palmPosition().getY();
-                instrumentPlayer.setVolume((int) yPos / 3);
-                System.out.println("Left hand is at: " + yPos);
-            } else {
-                // do some pitch stuff
-                float zPos = hand.palmPosition().getZ();
-                instrumentPlayer.setPitch((int) ((zPos / 12) + 60));
-                System.out.println("Right hand is at: " + zPos);
-            }
 
         }
         instrumentPlayer.playNote();

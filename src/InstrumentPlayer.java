@@ -20,8 +20,8 @@ class InstrumentPlayer{
 //    }
 
     public static void setPitch(int pitchIn){
-        if (pitchIn > 83) pitchIn = 48;
-        if (pitchIn < 48) pitchIn = 83;
+        if (pitchIn > 83) pitchIn = 36;
+        if (pitchIn < 36) pitchIn = 83;
         pitch = pitchIn;
     }
 

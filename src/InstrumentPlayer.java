@@ -3,10 +3,10 @@ import javax.sound.midi.*;
 class InstrumentPlayer{
     private static Instrument[] instruments;
     private static MidiChannel[] channels;
-    private static Integer pitch = 48;
-    private static Integer volume = 100;
-    private static boolean isSound = false;
+    private static Integer pitch;
+    private static Integer volume;
     private static String[] NoteBank;
+    private static boolean isSound = false;
 
     InstrumentPlayer(){
         isSound = true;
@@ -36,19 +36,9 @@ class InstrumentPlayer{
         channels[0].programChange(instruments[50].getPatch().getProgram());
     }
 
-//    public static void increasePitch(){
-//        pitch++;
-//        if (pitch > 83) pitch = 48;
-//    }
-//
-//    public static void decreasePitch(){
-//        pitch -=1;
-//        if (pitch < 48) pitch = 83;
-//    }
-
     public static void setPitch(int pitchIn){
-        if (pitchIn > 83) pitchIn = 83;
-        if (pitchIn < 36) pitchIn = 36;
+        if (pitchIn > 71) pitchIn = 71;
+        if (pitchIn < 48) pitchIn = 48;
         pitch = pitchIn;
     }
 
@@ -66,17 +56,6 @@ class InstrumentPlayer{
     public static Integer getVolume(){
         return volume;
     }
-
-
-//    public static void increaseVolume(){
-//        volume++;
-//        if (volume > 100) volume = 100;
-//    }
-//
-//    public static void decreaseVolume(){
-//        volume -=1;
-//        if (volume < 0) volume = 0;
-//    }
 
     public static void toggleSound(){
         isSound = !isSound;

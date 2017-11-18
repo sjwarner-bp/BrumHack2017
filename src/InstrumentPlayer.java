@@ -104,11 +104,6 @@ class InstrumentPlayer{
         System.out.println("Volume: " + volume);
         System.out.println("Pitch: " + pitch);
         System.out.println(NoteBank[NoteOut]);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         channels[0].allNotesOff();
     }
 }

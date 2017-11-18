@@ -44,7 +44,7 @@ class InstrumentPlayer{
 
 
     public static void setVolume(int volumeIn){
-        if(volumeIn > 100) volumeIn = 100;
+        if(volumeIn > 127) volumeIn = 127;
         if(volumeIn < 0) volumeIn = 0;
         volume = volumeIn;
     }

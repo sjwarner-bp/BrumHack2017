@@ -1,7 +1,7 @@
 # BrumHack2017 - LeapTheremin
 BrumHack2017 Project
 
-by Sam Warner, Nikolas Mouzourides and Chloe Seivwright.
+*by Sam Warner, Nikolas Mouzourides and Chloe Seivwright.*
 
 ## LeapTheremin
 The LeapTheremin is a mock-theremin / whole host of different musical instruments all of which may be played in a theremin-like style.

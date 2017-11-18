@@ -5,8 +5,8 @@ import javax.sound.midi.Synthesizer;
 
 class InstrumentPlayer{
     private static Instrument[] instruments;
-    private static Integer pitch = 60;
-    private static Integer volume = 30;
+    private static Integer pitch = 48;
+    private static Integer volume = 80;
     private static boolean isSound = false;
 
     public static void increasePitch(){
@@ -81,23 +81,24 @@ class InstrumentPlayer{
                     NoteOut = NoteOut - 12;
                 }
 
-                if (pitch <= 11)
-                {
-                    PtoNote = pitch + 12;
-                }
+//                if (pitch <= 11)
+//                {
+//                    PtoNote = pitch + 12;
+//                }
 
                 //dotCol = DotColor[NoteOut];
                 // channels[mc+1].programChange(instruments[83].getPatch().getProgram());
-                increasePitch();
                 channels[0].noteOn((pitch), (volume));
-                Thread.sleep(1000);
-                // channels[mc+1].allNotesOff();
-                //channels[mc+1].noteOn((pitch), (volume));
-
-
                 System.out.println("Volume: " + volume);
                 System.out.println("Pitch: " + pitch);
                 System.out.println(NoteBank[NoteOut]);
+                Thread.sleep(1000);
+                channels[0].allNotesOff();
+                increasePitch();
+                //channels[mc+1].noteOn((pitch), (volume));
+
+
+
 
                 if (pitch == 0 || volume == 0)
                 {

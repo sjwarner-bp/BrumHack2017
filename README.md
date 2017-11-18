@@ -6,4 +6,4 @@ Code to compile:
 ```javac -classpath ./leapJava.jar Sample.java```
 
 Code to run:
-```java -classpath "./LeapJava.jar: ." Sample```
+```java -classpath "./LeapJava.jar:." Sample```

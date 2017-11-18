@@ -84,7 +84,7 @@ class InstrumentPlayer{
         System.out.println("Pitch: " + pitch);
         System.out.println(NoteBank[NoteOut]);
         try {
-            Thread.sleep(100);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

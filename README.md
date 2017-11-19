@@ -27,7 +27,7 @@ Code to run:
 
 ...or, just set it up in your favourite IDE!
 
-## Rock, Paper, Scissors
+## LocalLeapRockPaperScissors
 Now this one is probably a bit more correct than the theremin...
 
 In the advent of intelligent personal assistants, we delegate more and more chores to these 'AI'. These range from the useful (check the weather, or remind me it's mum's birthday next Tuesday) to the somewhat silly (roll a 20-sided dice for me).
@@ -57,6 +57,21 @@ Code to run:
 
 ### Possible extension to Rock, Paper, Scissors...
 Rock, Paper, Scissors, Lizard, Spock? Why are all the shapes so similar?!?!?! :scream:
+
+## But WAIT! There is more... LeapNetworkRockPaperScissors!
+Say what!?! You crazy son of a gun, no way!
+
+Yes way, actually.
+
+With basic 'Rock, Paper, Scissors' working, why can't you just transmit the inputs of two Clients to a Server, and get the results back, all using TCP?
+
+Oh wait, *you can*...
+
+### To use...
+Do the same stuff as the other two (but with `RPSClient.java` and `RPSServer.java`), then...
+Start the server up (it'll listen on port 1337). After that, start up two Clients, submit your rock, paper, or scissor using your Leap, and wait for the Server to get back to you!
+
+It's set up for `localhost` here, but you can change the client to point at a specific server's IP address.
 
 ## LeapTranslate
 **NOT YET IMPLEMENTED**

@@ -47,25 +47,7 @@ class InstrumentPlayer{
     public static Integer getVolume(){
         return volume;
     }
-
-    public static void toggleSound(){
-        isSound = !isSound;
-    }
-
-
-    public void run(){
-        try{
-            while(isSound){
-                //Audio out test Parameters
-                playNote();
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
+    
     public void playNote() {
         int NoteOut = pitch;
         while (NoteOut > 11) NoteOut = NoteOut - 12;

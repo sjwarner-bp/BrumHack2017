@@ -1,4 +1,4 @@
-# BrumHack2017 - LeapTheremin
+# BrumHack2017 - Leap Motion Projects!
 BrumHack2017 Project
 
 *by Sam Warner, Nikolas Mouzourides and Chloe Seivwright.*

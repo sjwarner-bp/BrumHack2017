@@ -47,7 +47,7 @@ class InstrumentPlayer{
     public static Integer getVolume(){
         return volume;
     }
-    
+
     public void playNote() {
         int NoteOut = pitch;
         while (NoteOut > 11) NoteOut = NoteOut - 12;

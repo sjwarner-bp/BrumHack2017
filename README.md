@@ -57,3 +57,10 @@ Code to run:
 
 ### Possible extension to Rock, Paper, Scissors...
 Rock, Paper, Scissors, Lizard, Spock? Why are all the shapes so similar?!?!?! :scream:
+
+## LeapTranslate
+**NOT YET IMPLEMENTED**
+
+Another cool idea would be to translate basic sign language (maybe start off with the [American Fingerspelled Alphabet](http://www.lifeprint.com/asl101/fingerspelling/fingerspelling.htm), outputting a letter when a hand gesture is recognised.
+
+But again... Why are there so many letters that look so similar :scream:

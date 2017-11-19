@@ -34,9 +34,11 @@ In the advent of intelligent personal assistants, we delegate more and more chor
 
 However, some people use these functions to make decisions simpler. If I flip a coin and it comes up heads, I'll do the vacuuming today instead of tomorrow.
 
-But these disembodied voices are somewhat lackluster. 'Heads' or 'Tails' doesn't feel as real without flipping a coin, and "Rock, Paper, Scissors" isn't as fun without throwing some shapes out there.
+But these disembodied voices are somewhat lackluster. 'Heads' or 'Tails' doesn't feel as real without flipping a coin, and 'Rock, Paper, Scissors' isn't as fun without throwing some shapes out there.
 
 **This ends now.**
+
+But more seriously, this 'Rock, Paper, Scissors' game (again) uses the [Leap Motion](www.leapmotion.com), their API, and some pretty basic Java.
 
 ### A crash course in Rock, Paper, Scissors
 Nope, you don't need one.
@@ -54,4 +56,4 @@ Code to run:
 ...or, just set it up in your favourite IDE!
 
 ### Possible extension to Rock, Paper, Scissors...
-Rock, Paper, Scissors, Lizard, Spock?? Why are all the shapes so similar :scream:
+Rock, Paper, Scissors, Lizard, Spock? Why are all the shapes so similar?!?!?! :scream:

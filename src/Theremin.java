@@ -18,7 +18,7 @@ class ThereminListener extends Listener {
     }
 
     public void onDisconnect(Controller controller) {
-        //Note: not dispatched when running in a debugger.
+        // Note: not dispatched when running in a debugger.
         System.out.println("Disconnected");
     }
 
@@ -27,7 +27,7 @@ class ThereminListener extends Listener {
     }
 
     public void onFrame(Controller controller) {
-        // Get the most recent frame and report some basic information
+        // Get the most recent frame and make some beautiful music
         Frame frame = controller.frame();
 
         //Get hands
@@ -39,7 +39,9 @@ class ThereminListener extends Listener {
                 continue;
             }
 
+            // For each hand, we find the middle finger (for accuracy - but this is not clean!)
             for(Finger finger : hand.fingers()) {
+                // We made some mappings from space to volume / pitch
                 if (finger.type() == Finger.Type.TYPE_MIDDLE) {
                     if (hand.isLeft()) {
                         // do volume stuff
@@ -70,24 +72,22 @@ class ThereminListener extends Listener {
 
 class Theremin {
     public static void main(String[] args) {
-        // Create a sample listener and controller
+
         ThereminListener thereminListener = new ThereminListener();
         Controller controller = new Controller();
-
-        // Have the sample listener receive events from the controller
         controller.addListener(thereminListener);
 
         // Keep this process running until Enter is pressed
         System.out.println("Press Enter to quit...");
 
-        // Remove this code later when done diagnostics
+        // Here is some useful information about volume, pitch and notes
         try {
             System.in.read();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Remove the sample listener when done
+        // Remove the listener when done
         controller.removeListener(thereminListener);
     }
 }

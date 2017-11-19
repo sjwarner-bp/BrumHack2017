@@ -27,7 +27,7 @@ Code to run:
 
 ...or, just set it up in your favourite IDE!
 
-## LocalLeapRockPaperScissors
+## LeapLocalRockPaperScissors
 Now this one is probably a bit more correct than the theremin...
 
 In the advent of intelligent personal assistants, we delegate more and more chores to these 'AI'. These range from the useful (check the weather, or remind me it's mum's birthday next Tuesday) to the somewhat silly (roll a 20-sided dice for me).

@@ -25,7 +25,7 @@ class RockPaperScissorsListener extends Listener {
     }
 
     public void onFrame(Controller controller) {
-        // Get the most recent frame and report some basic information
+        // Get the most recent frame and work out if you're a rock, paper or scissor
         Frame frame = controller.frame();
 
         if (frame.hands().count() != 1) {
@@ -33,6 +33,7 @@ class RockPaperScissorsListener extends Listener {
             return;
         }
 
+        // Countdown to prepare user
         for (int i = 3; i > 0; i--) {
             try {
                 System.out.println(i);
@@ -42,7 +43,7 @@ class RockPaperScissorsListener extends Listener {
             }
         }
 
-        // There will only ever be one hand, so rightmost will work...
+        // There will only ever be one hand, so rightmost will work... (still not nice)
         Hand hand = frame.hands().rightmost();
         int extendedFingerCount = 0;
 
@@ -55,6 +56,7 @@ class RockPaperScissorsListener extends Listener {
         GestureType userGestureType;
         GestureType computerGestureType = GestureType.values()[(int) Math.floor((Math.random() * 3))];
 
+        // Is this logic sound? Not really, but in practise it is most effective
         if (extendedFingerCount == 0) {
             userGestureType = GestureType.ROCK;
         } else if (extendedFingerCount == 5) {
@@ -87,24 +89,24 @@ class RockPaperScissorsListener extends Listener {
 
 class RockPaperScissors {
     public static void main(String[] args) {
-        // Create a sample listener and controller
+        // Create a listener and controller
         RockPaperScissorsListener rockPaperScissorsListener = new RockPaperScissorsListener();
         Controller controller = new Controller();
 
-        // Have the sample listener receive events from the controller
+        // Have the rockPaperScissorsListener receive events from the controller
         controller.addListener(rockPaperScissorsListener);
 
         // Keep this process running until Enter is pressed
         System.out.println("Press Enter to quit...");
 
-        // Remove this code later when done diagnostics
+        // Diagnostics
         try {
             System.in.read();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Remove the sample listener when done
+        // Remove the listener when done
         controller.removeListener(rockPaperScissorsListener);
     }
 }

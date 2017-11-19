@@ -85,15 +85,6 @@ class RockPaperScissorsListener extends Listener {
     }
 }
 
-enum GestureType {
-    ROCK, PAPER, SCISSORS;
-
-    @Override
-    public String toString() {
-        return name().toLowerCase();
-    }
-}
-
 class RockPaperScissors {
     public static void main(String[] args) {
         // Create a sample listener and controller

@@ -1,5 +1,5 @@
 # BrumHack2017 - Leap Motion Projects!
-BrumHack2017 Project
+BrumHack2017 Project(s) * - Winner of Best Tech and Best Domain!*
 
 *by Sam Warner, Nikolas Mouzourides and Chloe Seivwright.*
 
